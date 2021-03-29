@@ -12,8 +12,9 @@ xhttp.open("GET", "xml/phones.xml", true);
 xhttp.send();
 
 function updateUI() {
+    var brandSelected = "Samsung";
     for (var i = 0; i < productsArray.length; i++) {
-        if (productsArray[i].display == "true") {
+        if (productsArray[i].display == "true" && productsArray[i].brand == brandSelected) {
             document.getElementById('products').innerHTML += '<div class="product-card col-sm-12 col-md-6 col-lg-4"><img src="images/phones/' + productsArray[i].productImage + '" alt="phone image"><h5>' + productsArray[i].brand + '</h5><h3>' + productsArray[i].model + '</h3><br>' + 'Device from<br><b>$<span style="font-size: 36px">' + productsArray[i].mpp36m35 + '</span></b> per month<br>' + 'over 36 months. <br> Min cost $' + productsArray[i].rcc + ' + plan cost. <br><a href="#" class="cartBtn" onclick="checkDetails(this)" data-product-id="' + productsArray[i].productID + '">Select</a></div>';
         }
     }
